@@ -1,0 +1,304 @@
+# WikiHouse Connection Grammar 規則筆記
+**Fabrication-Aware Discrete Design Grammar — 完整規則紀錄**
+版本：v2.2 | 更新日期：2026-05-07
+
+---
+
+## 規則來源分類
+
+| 來源標記 | 說明 |
+|---------|------|
+| 🔴 官方硬性規定 | WikiHouse 官方設計指南明確規定，不可違反 |
+| 🟡 結構邏輯推導 | 基於建築結構原理推導，需結構工程師確認 |
+| 🔵 製造邏輯推導 | 基於 CNC 製造和組裝邏輯推導 |
+| ✅ 建築師確認 | 經研究者建築專業判斷確認 |
+
+---
+
+## 一、結構不合法規則
+
+### S01 — Floor 頂面直接接 Roof
+- **分類**：🟡 結構邏輯
+- **判斷**：✅ 建築師確認
+- **描述**：Floor-M（或任何 Floor）頂面直接連接 Roof，中間沒有 Wall
+- **原因**：無法形成有效的居住空間；結構上垂直荷載路徑不連續；屋頂無支撐點
+- **合法做法**：Floor → Wall（至少一排）→ Roof
+- **Grammar 對應**：`FORBIDDEN_RULES[F02] floor_direct_to_roof`
+
+```
+❌ 不合法：  Floor → Roof
+✅ 合法：    Floor → Wall → Roof
+```
+
+---
+
+### S02 — 兩個 Corner 相鄰
+- **分類**：🟡 結構邏輯
+- **判斷**：✅ 建築師確認（先以「是」進行）
+- **描述**：兩個 Corner block 在同一排直接相鄰，中間沒有 Wall
+- **原因**：結構冗餘（兩個角柱之間形成空洞）；無法連接牆板，導致圍合失敗
+- **附加規則**：矩形建築有且僅有 4 個 Corner block，每個直角轉角各一個
+- **Grammar 對應**：`FORBIDDEN_RULES[F03] corner_adjacent_to_corner`
+
+```
+❌ 不合法：  Corner → Corner
+✅ 合法：    Corner → Wall → Corner
+```
+
+---
+
+### S03 — 不同高度的 Wall 在同一排相鄰
+- **分類**：🟡 結構邏輯
+- **判斷**：✅ 建築師確認
+- **描述**：同一面牆上，不同高度代號的 Wall block 相鄰（例如 WALL-M 旁接 WALL-L）
+- **原因**：頂部高度不齊，屋頂 block 無法水平安裝；屋頂接縫處形成結構弱點
+- **例外**：斜頂（10°）的低側和高側本來就不同高度，但這是兩個不同面的牆，非同一排相鄰
+- **Grammar 對應**：`HEIGHT_COMPATIBILITY_GROUPS`
+
+```
+❌ 不合法：  WALL-M → WALL-L（同一排）
+✅ 合法：    WALL-M → WALL-M → WALL-M（同一排，高度一致）
+✅ 合法（斜頂）：低側整排 WALL-M，高側整排 WALL-XL（不同面）
+```
+
+---
+
+### S04 — 不同跨距的 Floor 在同一跨距混用
+- **分類**：🔴 官方硬性規定
+- **判斷**：✅ 建築師確認
+- **描述**：Floor-M（4.8m）和 Floor-L（5.4m）在同一跨距方向混用
+- **原因**：跨距不一致，兩端牆板位置無法對齊；造成結構斷裂或變形
+- **官方規定**：跨距形成建築在一個方向的全寬，必須使用同一種跨距規格
+- **Grammar 對應**：`SPAN_COMPATIBILITY`
+
+```
+❌ 不合法：  同一跨距方向混用 FLOOR-M 和 FLOOR-L
+✅ 合法：    整棟建築統一使用 FLOOR-M 或統一使用 FLOOR-L
+```
+
+---
+
+## 二、製造不合法規則
+
+### M01 — 開口 Block 相鄰且開口直接相接
+- **分類**：🔴 官方硬性規定 + 🔵 製造邏輯
+- **判斷**：✅ 建築師確認（開口比例上限暫定 50%）
+- **描述**：兩個 DOOR 或 WINDOW block 緊鄰，中間沒有實心牆板
+- **原因（結構）**：開口之間沒有實心牆，側向支撐失效，牆面在風荷載下容易扭曲
+- **原因（製造）**：兩個開口相鄰時，過樑跨度過大，需要特殊設計
+- **官方原文**：「you will generally need to have at least one solid wall block between any two window or door blocks」
+- **開口比例上限**：單面牆開口不超過 50%（建築師判斷，官方未明確規定比例）
+- **Grammar 對應**：`FORBIDDEN_RULES[F01] opening_adjacent_to_opening`
+
+```
+❌ 不合法：  DOOR → DOOR
+❌ 不合法：  WINDOW → WINDOW
+❌ 不合法：  DOOR → WINDOW
+✅ 合法：    DOOR → WALL → WINDOW
+✅ 合法：    WINDOW → WALL → WALL → DOOR
+```
+
+---
+
+### M02 — Wall 系列和 Floor 系列直接水平相鄰
+- **分類**：🔵 製造邏輯
+- **判斷**：✅ 建築師確認
+- **描述**：Wall block 和 Floor block 在同一水平層直接並排（左右相鄰）
+- **原因**：Wall 是垂直構件（站立），Floor 是水平構件（平放），方向不同，無法形成有意義的連接；在物理上無法穩定接合
+- **正確關係**：Wall 應站在 Floor 上方（垂直關係），不是並排（水平關係）
+- **Grammar 對應**：`CONNECTION_RULES["floor"]["left/right"]` 只接 floor/end
+
+```
+❌ 不合法：  WALL-M ←→ FLOOR-M（水平並排）
+✅ 合法：    FLOOR-M（下）+ WALL-M（上，垂直）
+```
+
+---
+
+## 三、官方規定的補充規則
+
+### O01 — 側向支撐（Bracing）規則
+- **分類**：🔴 官方硬性規定
+- **來源**：WikiHouse Design Guide — How the Structure Works
+
+| 樓層 | 方案 A | 方案 B |
+|------|--------|--------|
+| 單層 | 每 6m：連續 3 個實心牆板（≥1.8m）| 每 6m：兩段各 2 個實心牆板（≥1.2m）|
+| 兩層 | 每 6m：連續 6 個實心牆板（≥3.6m）| 每 6m：兩段各 4 個實心牆板（≥2.4m）|
+| 三層 | 需結構工程師個別評估 | — |
+
+```
+❌ 不合法（單層）：連續 6m 牆面全部是開口板
+✅ 合法（單層）：每 6m 至少保留 3 個連續實心牆板
+```
+
+---
+
+### O02 — 屋頂天窗不能連續排列
+- **分類**：🔴 官方指引
+- **來源**：WikiHouse Design Guide — Floors and roofs
+- **描述**：屋頂上的天窗（Skylight）不能連續多個排列
+- **原因**：樓板和屋頂提供整體側向穩定，大量天窗會削弱這個作用
+
+---
+
+### O03 — SK200 僅限單層
+- **分類**：🔴 官方硬性規定
+- **描述**：SK200 系列不適用於兩層或三層建築
+- **原因**：SK200 牆板較薄（268mm），結構能力不足以支撐多層荷載
+
+---
+
+### O04 — SK200 和 SK250 不能混用
+- **分類**：🔴 官方硬性規定
+- **描述**：同一棟建築不能同時使用 SK200 和 SK250 的 block
+- **原因**：兩個系列的牆板厚度不同（268mm vs 318mm），接合面幾何不相容
+
+---
+
+### O05 — 山牆屋頂限制
+- **分類**：🔴 官方規定
+- **描述**：山牆屋頂（Gable 42°）目前只支援 M 跨距（4.8m）
+- **需求**：必須配備 90mm 寬的 glulam 或 LVL 脊樑
+
+---
+
+### O06 — END Block 必要性
+- **分類**：🔴 官方規定
+- **判斷**：✅ 建築師確認（是）
+- **描述**：每個 Floor 跨距的兩端必須使用 END block
+- **原因**：END block 用於收邊和與牆板的轉角接合，同時作為 Bowtie 的安裝基座
+- **Grammar 對應**：`CONNECTION_RULES["end"]`
+
+```
+✅ 正確：  END-M → FLOOR-M → FLOOR-M → END-M
+❌ 錯誤：  FLOOR-M → FLOOR-M（兩端無 END block）
+```
+
+---
+
+## 四、Bowtie Ties 連接規則（新增）
+
+### T01 — Ties 的功能與類型
+
+WikiHouse Skylark 使用 **Bowtie timber ties** 作為 Block 之間的主要連接固定方式。Ties 不是結構承重構件，而是**鎖固（Interlocking）元件**，防止 Block 在組裝後位移或脫開。
+
+**來源**：WikiHouse General Assembly Guide
+
+Ties 分三種型態：
+
+| 類型 | 用途 |
+|------|------|
+| 標準 Bowtie | Floor-Floor 接縫、Wall-Wall 接縫 |
+| Floor-Wall Bowtie | Floor 端頭與 Wall 的連接 |
+| Half-tie | 開口（Door/Window）周圍的收邊固定 |
+
+---
+
+### T02 — Ties 數量計算規則
+
+**來源**：WikiHouse General Assembly Guide
+
+| 連接位置 | 數量規則 | 說明 |
+|---------|---------|------|
+| Floor → Floor（相鄰接縫）| 每個接縫 1 個標準 Bowtie | 橡皮槌敲入孔洞鎖固 |
+| Floor 端頭 → Wall | 每端外側 3 + 內側 3 = **6 個**，每個 Floor 兩端共 **12 個** | 樑頭固定 |
+| Wall → Wall（相鄰接縫）| 每個接縫內外各 1 個 = **2 個** | 內側先裝，外側後裝 |
+| Wall → Roof（頂部接縫）| 每個接縫 **2 個** | 屋頂固定 |
+
+**估算公式**：
+
+```
+Floor-Floor Ties = (Floor block 數量 - 1)
+Floor-Wall Ties  = Floor block 數量 × 2 端 × 6 個 = Floor × 12
+Wall-Wall Ties   = (Wall/Corner/Window block 數量 - 1) × 2
+Wall-Roof Ties   = Roof block 數量 × 2
+
+總計 = 以上四項加總
+```
+
+**注意**：以上為估算值，**實際數量以官方切割檔（DXF）中的孔位為準**
+
+---
+
+### T03 — Ties 的組裝順序
+
+1. **Floor 階段**：Floor-Floor 接縫的 Bowtie 在鋪設 Floor block 時同步安裝
+2. **Floor-Wall 階段**：Floor 端頭的 Bowtie 在 Wall 豎立前先安裝內側，Wall 豎立後再安裝外側
+3. **Wall 階段**：Wall-Wall 接縫的 Bowtie 內側先裝，外側（需站在梯子或平台上）後裝
+4. **Roof 階段**：Wall-Roof 接縫的 Bowtie 在屋頂安裝後固定
+
+**Grammar 對應**：`ASSEMBLY_ORDER` — connector 為步驟 6（最後）
+
+---
+
+### T04 — Ties 的材料規格
+
+| 項目 | 規格 |
+|------|------|
+| 材料 | OSB3 或合板，與主體板材相同 |
+| 系列（SK250）| SKYLARK250_TIES |
+| 系列（SK200）| SKYLARK200_TIES |
+| 安裝工具 | 橡皮槌（rubber mallet）|
+| 安裝方式 | 敲入預切孔洞，無需螺絲或釘子 |
+
+---
+
+## 五、完整規則對照表（更新版）
+
+| 規則 ID | 類別 | 嚴重度 | 描述 | 來源 | 狀態 |
+|---------|------|--------|------|------|------|
+| S01 | 結構 | Error | Floor 頂面直接接 Roof | 結構邏輯 | ✅ 確認 |
+| S02 | 結構 | Error | 兩個 Corner 相鄰 | 結構邏輯 | ✅ 確認 |
+| S03 | 結構 | Error | 同排不同高度 Wall 相鄰 | 結構邏輯 | ✅ 確認 |
+| S04 | 結構 | Error | 不同跨距 Floor 混用 | 官方規定 | ✅ 確認 |
+| M01 | 製造 | Error | 開口 Block 直接相鄰（上限 50%）| 官方規定 | ✅ 確認 |
+| M02 | 製造 | Error | Wall 與 Floor 水平並排 | 製造邏輯 | ✅ 確認 |
+| O01 | 官方 | Error/Warning | 側向支撐不足 | 官方規定 | ✅ 確認 |
+| O02 | 官方 | Warning | 天窗連續排列 | 官方規定 | ✅ 確認 |
+| O03 | 官方 | Error | SK200 用於多層 | 官方規定 | ✅ 確認 |
+| O04 | 官方 | Error | SK200/SK250 混用 | 官方規定 | ✅ 確認 |
+| O05 | 官方 | Error | 山牆屋頂跨距錯誤 | 官方規定 | ✅ 確認 |
+| O06 | 官方 | Error | 缺少 END block | 官方規定 | ✅ 確認 |
+| T01 | Ties | 資訊 | Ties 類型與功能 | 官方組裝指南 | ✅ 確認 |
+| T02 | Ties | 資訊 | Ties 數量計算規則 | 官方組裝指南 | ✅ 確認 |
+| T03 | Ties | 資訊 | Ties 組裝順序 | 官方組裝指南 | ✅ 確認 |
+| T04 | Ties | 資訊 | Ties 材料規格 | 官方資料 | ✅ 確認 |
+
+---
+
+## 六、Grammar 程式碼對應（更新版）
+
+| 規則 ID | 對應 Grammar 變數／函數 |
+|---------|----------------------|
+| S01 | `FORBIDDEN_RULES[F02]` |
+| S02 | `FORBIDDEN_RULES[F03]` |
+| S03 | `HEIGHT_COMPATIBILITY_GROUPS` |
+| S04 | `SPAN_COMPATIBILITY` |
+| M01 | `FORBIDDEN_RULES[F01]` |
+| M02 | `CONNECTION_RULES["floor"]["left/right"]` |
+| O01 | `STRUCTURAL_CONSTRAINTS["lateral_bracing"]` |
+| O02 | `STRUCTURAL_CONSTRAINTS["roof_wall_connection"]` |
+| O03 | `FORBIDDEN_RULES[F05]` |
+| O04 | `FORBIDDEN_RULES[F04]` |
+| O05 | `FORBIDDEN_RULES[F06]` + `ROOF_TYPES["gable_42deg"]` |
+| O06 | `CONNECTION_RULES["end"]` |
+| T01-T04 | `calculate_ties()` 函數 |
+
+---
+
+## 七、待確認的規則（已解決）
+
+| 規則 | 問題 | 建築師判斷 | 狀態 |
+|------|------|-----------|------|
+| ？01 Corner 數量 | 矩形建築是否有且僅有 4 個 Corner？ | 是，先以此進行 | ✅ 解決 |
+| ？02 開口最大比例 | 官方是否有明確開口比例上限？ | 暫定不超過 50% | ✅ 解決 |
+| ？03 END block 必要性 | 每個跨距兩端是否必須用 END block？ | 是 | ✅ 解決 |
+| ？04 內部隔間牆連接 | 隔間牆如何與 WikiHouse chassis 連接？ | 官方說明已足夠，不需編碼 | ✅ 解決 |
+
+---
+
+*文件版本：v2.2*
+*規則總數：16 條（12 條設計規則 + 4 條 Ties 規則）*
+*所有待確認規則已解決*
+*最後更新：2026-05-07*

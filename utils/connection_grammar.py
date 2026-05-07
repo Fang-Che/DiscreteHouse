@@ -616,6 +616,47 @@ def is_connection_valid(block_a: dict, face_a: str, block_b: dict) -> tuple:
 
     return True, None, "連接合法"
 
+def calculate_ties(blocks_list: list) -> dict:
+    """
+    計算配置所需的 Bowtie Ties 數量
+    
+    基於官方組裝指南的規則：
+    - Floor-Floor 接縫：每個接縫 1 個標準 Bowtie
+    - Floor 端頭接 Wall：每端外側 3 + 內側 3 = 6 個，每個 Floor 兩端共 12 個
+    - Wall-Wall 接縫：每個接縫內外各 1 個 = 2 個
+    - Wall-Roof 接縫：每個接縫 2 個
+    
+    來源：WikiHouse General Assembly Guide
+    """
+    floor_blocks = [b for b in blocks_list
+                    if b.get("category") in ["floor", "end"]]
+    wall_blocks  = [b for b in blocks_list
+                    if b.get("category") in ["wall", "corner", "window"]]
+    roof_blocks  = [b for b in blocks_list
+                    if b.get("category") == "roof"]
+
+    # Floor 與 Floor 之間的接縫（N 個 Floor 有 N-1 個接縫）
+    floor_to_floor = max(0, len(floor_blocks) - 1)
+
+    # Floor 端頭與 Wall 的連接（每個 Floor 兩端，每端外 3 + 內 3 = 6）
+    floor_to_wall = len(floor_blocks) * 2 * 6
+
+    # Wall 與 Wall 之間的接縫（每個接縫內外各 1 = 2 個）
+    wall_to_wall = max(0, len(wall_blocks) - 1) * 2
+
+    # Wall 頂部與 Roof 的連接（每個接縫 2 個）
+    wall_to_roof = len(roof_blocks) * 2
+
+    total = floor_to_floor + floor_to_wall + wall_to_wall + wall_to_roof
+
+    return {
+        "floor_to_floor": floor_to_floor,
+        "floor_to_wall":  floor_to_wall,
+        "wall_to_wall":   wall_to_wall,
+        "wall_to_roof":   wall_to_roof,
+        "total":          total,
+        "note": "估算值，實際數量以官方切割檔孔位為準"
+    }
 
 def validate_configuration(blocks_list: list, stories: int = 1) -> dict:
     """
@@ -792,6 +833,9 @@ def validate_configuration(blocks_list: list, stories: int = 1) -> dict:
         "series":         list(series_set),
     }
 
+# ── Ties 數量計算 ──
+    ties = calculate_ties(blocks_list)
+
     return {
         "is_valid":          len(errors) == 0,
         "errors":            errors,
@@ -799,6 +843,7 @@ def validate_configuration(blocks_list: list, stories: int = 1) -> dict:
         "assembly_order":    assembly_sequence,
         "summary":           summary,
         "fabrication_notes": fabrication_notes,
+        "ties":              ties,
     }
 
 
@@ -844,6 +889,18 @@ def format_validation_report(result: dict) -> str:
     lines.append("【製造備註】")
     for note in result["fabrication_notes"]:
         lines.append(f"  • {note}")
+
+    ties = result.get("ties", {})
+    if ties:
+        lines.append("")
+        lines.append("【Ties 用量估算】")
+        lines.append(f"  Floor-Floor 接縫：{ties['floor_to_floor']} 個")
+        lines.append(f"  Floor-Wall 端頭： {ties['floor_to_wall']} 個")
+        lines.append(f"  Wall-Wall 接縫：  {ties['wall_to_wall']} 個")
+        lines.append(f"  Wall-Roof 接縫：  {ties['wall_to_roof']} 個")
+        lines.append(f"  ─────────────────")
+        lines.append(f"  總計：            {ties['total']} 個")
+        lines.append(f"  （{ties['note']}）")
 
     lines.append("═" * 50)
     lines.append("⚠️  最終設計必須由結構工程師審核")
