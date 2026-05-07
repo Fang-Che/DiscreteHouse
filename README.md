@@ -17,6 +17,16 @@ and manufacturable WikiHouse Skylark configurations from natural language input.
 ---
 
 ## System Overview
+Natural Language Input
+↓
+Layer 1: LLM Requirement Understanding
+↓
+Layer 2: Fabrication-Aware Grammar Validation
+↓
+Layer 3: Block Library Matching (198 official blocks)
+↓
+Layer 4: Output (2D Plan / BOM / DXF files)
+
 
 ---
 
