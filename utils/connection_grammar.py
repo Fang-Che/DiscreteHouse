@@ -854,53 +854,56 @@ def format_validation_report(result: dict) -> str:
     lines.append("WikiHouse 配置驗證報告")
     lines.append("═" * 50)
 
-    status = "✅ 合法（可製造）" if result["is_valid"] else "❌ 不合法（需修正）"
+    status = "✅ 合法（可製造）" if result.get("is_valid") else "❌ 不合法（需修正）"
     lines.append(f"狀態：{status}")
     lines.append("")
 
-    if result["errors"]:
+    if result.get("errors"):
         lines.append("【錯誤 - 必須修正】")
         for e in result["errors"]:
             lines.append(f"  [{e['rule_id']}] {e['message']}")
         lines.append("")
 
-    if result["warnings"]:
+    if result.get("warnings"):
         lines.append("【警告 - 建議確認】")
         for w in result["warnings"]:
             lines.append(f"  [{w['rule_id']}] {w['message']}")
         lines.append("")
 
-    lines.append("【統計】")
-    s = result["summary"]
-    lines.append(f"  總 Block 數：{s['total_blocks']}")
-    lines.append(f"  樓板：{s['floor_count']} | 牆板：{s['wall_count']} | "
-                 f"轉角：{s['corner_count']} | 屋頂：{s['roof_count']} | "
-                 f"開口：{s['opening_count']}")
-    lines.append(f"  樓層：{s['stories']} | 系列：{s['series']}")
-    lines.append("")
+    s = result.get("summary", {})
+    if s:
+        lines.append("【統計】")
+        lines.append(f"  總 Block 數：{s.get('total_blocks', 0)}")
+        lines.append(f"  樓板：{s.get('floor_count', 0)} | 牆板：{s.get('wall_count', 0)} | "
+                     f"轉角：{s.get('corner_count', 0)} | 屋頂：{s.get('roof_count', 0)} | "
+                     f"開口：{s.get('opening_count', 0)}")
+        lines.append(f"  樓層：{s.get('stories', 1)} | 系列：{s.get('series', [])}")
+        lines.append("")
 
-    lines.append("【組裝順序】")
-    for step in result["assembly_order"]:
-        lines.append(f"  步驟 {step['step']}：{step['label']}")
-        lines.append(f"    Blocks：{', '.join(step['blocks'][:5])}"
-                     + ("..." if len(step["blocks"]) > 5 else ""))
-    lines.append("")
+    if result.get("assembly_order"):
+        lines.append("【組裝順序】")
+        for step in result["assembly_order"]:
+            lines.append(f"  步驟 {step['step']}：{step['label']}")
+            lines.append(f"    Blocks：{', '.join(step['blocks'][:5])}"
+                         + ("..." if len(step["blocks"]) > 5 else ""))
+        lines.append("")
 
-    lines.append("【製造備註】")
-    for note in result["fabrication_notes"]:
-        lines.append(f"  • {note}")
+    if result.get("fabrication_notes"):
+        lines.append("【製造備註】")
+        for note in result["fabrication_notes"]:
+            lines.append(f"  • {note}")
 
     ties = result.get("ties", {})
     if ties:
         lines.append("")
         lines.append("【Ties 用量估算】")
-        lines.append(f"  Floor-Floor 接縫：{ties['floor_to_floor']} 個")
-        lines.append(f"  Floor-Wall 端頭： {ties['floor_to_wall']} 個")
-        lines.append(f"  Wall-Wall 接縫：  {ties['wall_to_wall']} 個")
-        lines.append(f"  Wall-Roof 接縫：  {ties['wall_to_roof']} 個")
+        lines.append(f"  Floor-Floor 接縫：{ties.get('floor_to_floor', 0)} 個")
+        lines.append(f"  Floor-Wall 端頭： {ties.get('floor_to_wall', 0)} 個")
+        lines.append(f"  Wall-Wall 接縫：  {ties.get('wall_to_wall', 0)} 個")
+        lines.append(f"  Wall-Roof 接縫：  {ties.get('wall_to_roof', 0)} 個")
         lines.append(f"  ─────────────────")
-        lines.append(f"  總計：            {ties['total']} 個")
-        lines.append(f"  （{ties['note']}）")
+        lines.append(f"  總計：            {ties.get('total', 0)} 個")
+        lines.append(f"  （{ties.get('note', '')}）")
 
     lines.append("═" * 50)
     lines.append("⚠️  最終設計必須由結構工程師審核")

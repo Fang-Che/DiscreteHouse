@@ -1,0 +1,1922 @@
+[
+  {
+    "block_id": "SKYLARK250_END-M-0",
+    "category": "end",
+    "series": "skylark250",
+    "name": "END-M-0",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 0,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 0.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_XFLOOR-M-0",
+    "category": "floor",
+    "series": "skylark250",
+    "name": "XFLOOR-M-0",
+    "position": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 0.6,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_XFLOOR-M-0",
+    "category": "floor",
+    "series": "skylark250",
+    "name": "XFLOOR-M-0",
+    "position": {
+      "x": 0,
+      "y": 2,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 1200,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 1.2,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_XFLOOR-M-0",
+    "category": "floor",
+    "series": "skylark250",
+    "name": "XFLOOR-M-0",
+    "position": {
+      "x": 0,
+      "y": 3,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 1800,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 1.8,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_XFLOOR-M-0",
+    "category": "floor",
+    "series": "skylark250",
+    "name": "XFLOOR-M-0",
+    "position": {
+      "x": 0,
+      "y": 4,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 2400,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 2.4,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_XFLOOR-M-0",
+    "category": "floor",
+    "series": "skylark250",
+    "name": "XFLOOR-M-0",
+    "position": {
+      "x": 0,
+      "y": 5,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 3000,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 3.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_XFLOOR-M-0",
+    "category": "floor",
+    "series": "skylark250",
+    "name": "XFLOOR-M-0",
+    "position": {
+      "x": 0,
+      "y": 6,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 3600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 3.6,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_XFLOOR-M-0",
+    "category": "floor",
+    "series": "skylark250",
+    "name": "XFLOOR-M-0",
+    "position": {
+      "x": 0,
+      "y": 7,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 4200,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 4.2,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_XFLOOR-M-0",
+    "category": "floor",
+    "series": "skylark250",
+    "name": "XFLOOR-M-0",
+    "position": {
+      "x": 0,
+      "y": 8,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 4800,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 4.8,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_XFLOOR-M-0",
+    "category": "floor",
+    "series": "skylark250",
+    "name": "XFLOOR-M-0",
+    "position": {
+      "x": 0,
+      "y": 9,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 5400,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 5.4,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_XFLOOR-M-0",
+    "category": "floor",
+    "series": "skylark250",
+    "name": "XFLOOR-M-0",
+    "position": {
+      "x": 0,
+      "y": 10,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 6000,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 6.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_XFLOOR-M-0",
+    "category": "floor",
+    "series": "skylark250",
+    "name": "XFLOOR-M-0",
+    "position": {
+      "x": 0,
+      "y": 11,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 6600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 6.6,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_XFLOOR-M-0",
+    "category": "floor",
+    "series": "skylark250",
+    "name": "XFLOOR-M-0",
+    "position": {
+      "x": 0,
+      "y": 12,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 7200,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 7.2,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_XFLOOR-M-0",
+    "category": "floor",
+    "series": "skylark250",
+    "name": "XFLOOR-M-0",
+    "position": {
+      "x": 0,
+      "y": 13,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 7800,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 7.8,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_XFLOOR-M-0",
+    "category": "floor",
+    "series": "skylark250",
+    "name": "XFLOOR-M-0",
+    "position": {
+      "x": 0,
+      "y": 14,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 8400,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 8.4,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_XFLOOR-M-0",
+    "category": "floor",
+    "series": "skylark250",
+    "name": "XFLOOR-M-0",
+    "position": {
+      "x": 0,
+      "y": 15,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 9000,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 9.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_END-M-0",
+    "category": "end",
+    "series": "skylark250",
+    "name": "END-M-0",
+    "position": {
+      "x": 0,
+      "y": 16,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 9600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 9.6,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "floor",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK200_CORNER-M",
+    "category": "corner",
+    "series": "skylark250",
+    "name": "CORNER-M",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 0,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 0.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "south",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 1,
+      "y": 0,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 600,
+      "y_mm": 0,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.6,
+      "y_m": 0.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "south",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 2,
+      "y": 0,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 1200,
+      "y_mm": 0,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 1.2,
+      "y_m": 0.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "south",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 3,
+      "y": 0,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 1800,
+      "y_mm": 0,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 1.8,
+      "y_m": 0.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "south",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_DOOR-M1",
+    "category": "window",
+    "series": "skylark250",
+    "name": "DOOR-M1",
+    "position": {
+      "x": 4,
+      "y": 0,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 2400,
+      "y_mm": 0,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 2.4,
+      "y_m": 0.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "south",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 5,
+      "y": 0,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 3000,
+      "y_mm": 0,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 3.0,
+      "y_m": 0.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "south",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 6,
+      "y": 0,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 3600,
+      "y_mm": 0,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 3.6,
+      "y_m": 0.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "south",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK200_CORNER-M",
+    "category": "corner",
+    "series": "skylark250",
+    "name": "CORNER-M",
+    "position": {
+      "x": 7,
+      "y": 0,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 0,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 0.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "south",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK200_CORNER-M",
+    "category": "corner",
+    "series": "skylark250",
+    "name": "CORNER-M",
+    "position": {
+      "x": 0,
+      "y": 16,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 9600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 9.6,
+      "z_m": 0.0
+    },
+    "rotation": 180,
+    "face": "north",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 1,
+      "y": 16,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 600,
+      "y_mm": 9600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.6,
+      "y_m": 9.6,
+      "z_m": 0.0
+    },
+    "rotation": 180,
+    "face": "north",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 2,
+      "y": 16,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 1200,
+      "y_mm": 9600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 1.2,
+      "y_m": 9.6,
+      "z_m": 0.0
+    },
+    "rotation": 180,
+    "face": "north",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 3,
+      "y": 16,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 1800,
+      "y_mm": 9600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 1.8,
+      "y_m": 9.6,
+      "z_m": 0.0
+    },
+    "rotation": 180,
+    "face": "north",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WINDOW-M2",
+    "category": "window",
+    "series": "skylark250",
+    "name": "WINDOW-M2",
+    "position": {
+      "x": 4,
+      "y": 16,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 2400,
+      "y_mm": 9600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 2.4,
+      "y_m": 9.6,
+      "z_m": 0.0
+    },
+    "rotation": 180,
+    "face": "north",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 5,
+      "y": 16,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 3000,
+      "y_mm": 9600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 3.0,
+      "y_m": 9.6,
+      "z_m": 0.0
+    },
+    "rotation": 180,
+    "face": "north",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 6,
+      "y": 16,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 3600,
+      "y_mm": 9600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 3.6,
+      "y_m": 9.6,
+      "z_m": 0.0
+    },
+    "rotation": 180,
+    "face": "north",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK200_CORNER-M",
+    "category": "corner",
+    "series": "skylark250",
+    "name": "CORNER-M",
+    "position": {
+      "x": 7,
+      "y": 16,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 9600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 9.6,
+      "z_m": 0.0
+    },
+    "rotation": 180,
+    "face": "north",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 0.6,
+      "z_m": 0.0
+    },
+    "rotation": 270,
+    "face": "west",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 0,
+      "y": 2,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 1200,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 1.2,
+      "z_m": 0.0
+    },
+    "rotation": 270,
+    "face": "west",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 0,
+      "y": 3,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 1800,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 1.8,
+      "z_m": 0.0
+    },
+    "rotation": 270,
+    "face": "west",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 0,
+      "y": 4,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 2400,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 2.4,
+      "z_m": 0.0
+    },
+    "rotation": 270,
+    "face": "west",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 0,
+      "y": 5,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 3000,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 3.0,
+      "z_m": 0.0
+    },
+    "rotation": 270,
+    "face": "west",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 0,
+      "y": 6,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 3600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 3.6,
+      "z_m": 0.0
+    },
+    "rotation": 270,
+    "face": "west",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 0,
+      "y": 7,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 4200,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 4.2,
+      "z_m": 0.0
+    },
+    "rotation": 270,
+    "face": "west",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 0,
+      "y": 8,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 4800,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 4.8,
+      "z_m": 0.0
+    },
+    "rotation": 270,
+    "face": "west",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 0,
+      "y": 9,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 5400,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 5.4,
+      "z_m": 0.0
+    },
+    "rotation": 270,
+    "face": "west",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 0,
+      "y": 10,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 6000,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 6.0,
+      "z_m": 0.0
+    },
+    "rotation": 270,
+    "face": "west",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 0,
+      "y": 11,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 6600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 6.6,
+      "z_m": 0.0
+    },
+    "rotation": 270,
+    "face": "west",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 0,
+      "y": 12,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 7200,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 7.2,
+      "z_m": 0.0
+    },
+    "rotation": 270,
+    "face": "west",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 0,
+      "y": 13,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 7800,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 7.8,
+      "z_m": 0.0
+    },
+    "rotation": 270,
+    "face": "west",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 0,
+      "y": 14,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 8400,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 8.4,
+      "z_m": 0.0
+    },
+    "rotation": 270,
+    "face": "west",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 0,
+      "y": 15,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 9000,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 9.0,
+      "z_m": 0.0
+    },
+    "rotation": 270,
+    "face": "west",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 7,
+      "y": 1,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 0.6,
+      "z_m": 0.0
+    },
+    "rotation": 90,
+    "face": "east",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 7,
+      "y": 2,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 1200,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 1.2,
+      "z_m": 0.0
+    },
+    "rotation": 90,
+    "face": "east",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 7,
+      "y": 3,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 1800,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 1.8,
+      "z_m": 0.0
+    },
+    "rotation": 90,
+    "face": "east",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 7,
+      "y": 4,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 2400,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 2.4,
+      "z_m": 0.0
+    },
+    "rotation": 90,
+    "face": "east",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 7,
+      "y": 5,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 3000,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 3.0,
+      "z_m": 0.0
+    },
+    "rotation": 90,
+    "face": "east",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WINDOW-M2",
+    "category": "window",
+    "series": "skylark250",
+    "name": "WINDOW-M2",
+    "position": {
+      "x": 7,
+      "y": 6,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 3600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 3.6,
+      "z_m": 0.0
+    },
+    "rotation": 90,
+    "face": "east",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 7,
+      "y": 7,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 4200,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 4.2,
+      "z_m": 0.0
+    },
+    "rotation": 90,
+    "face": "east",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 7,
+      "y": 8,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 4800,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 4.8,
+      "z_m": 0.0
+    },
+    "rotation": 90,
+    "face": "east",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 7,
+      "y": 9,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 5400,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 5.4,
+      "z_m": 0.0
+    },
+    "rotation": 90,
+    "face": "east",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 7,
+      "y": 10,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 6000,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 6.0,
+      "z_m": 0.0
+    },
+    "rotation": 90,
+    "face": "east",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WINDOW-M2",
+    "category": "window",
+    "series": "skylark250",
+    "name": "WINDOW-M2",
+    "position": {
+      "x": 7,
+      "y": 11,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 6600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 6.6,
+      "z_m": 0.0
+    },
+    "rotation": 90,
+    "face": "east",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 7,
+      "y": 12,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 7200,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 7.2,
+      "z_m": 0.0
+    },
+    "rotation": 90,
+    "face": "east",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 7,
+      "y": 13,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 7800,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 7.8,
+      "z_m": 0.0
+    },
+    "rotation": 90,
+    "face": "east",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 7,
+      "y": 14,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 8400,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 8.4,
+      "z_m": 0.0
+    },
+    "rotation": 90,
+    "face": "east",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "category": "wall",
+    "series": "skylark250",
+    "name": "WALL-M",
+    "position": {
+      "x": 7,
+      "y": 15,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 4200,
+      "y_mm": 9000,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 4.2,
+      "y_m": 9.0,
+      "z_m": 0.0
+    },
+    "rotation": 90,
+    "face": "east",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 0,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 0.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 0.6,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 2,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 1200,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 1.2,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 3,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 1800,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 1.8,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 4,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 2400,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 2.4,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 5,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 3000,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 3.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 6,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 3600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 3.6,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 7,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 4200,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 4.2,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 8,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 4800,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 4.8,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 9,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 5400,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 5.4,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 10,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 6000,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 6.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 11,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 6600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 6.6,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 12,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 7200,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 7.2,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 13,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 7800,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 7.8,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 14,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 8400,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 8.4,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 15,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 9000,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 9.0,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  },
+  {
+    "block_id": "SKYLARK250_ROOF-M10",
+    "category": "roof",
+    "series": "skylark250",
+    "name": "ROOF-M10",
+    "position": {
+      "x": 0,
+      "y": 16,
+      "z": 0
+    },
+    "position_mm": {
+      "x_mm": 0,
+      "y_mm": 9600,
+      "z_mm": 0
+    },
+    "position_m": {
+      "x_m": 0.0,
+      "y_m": 9.6,
+      "z_m": 0.0
+    },
+    "rotation": 0,
+    "face": "top",
+    "wall_height_mm": 2400
+  }
+]
