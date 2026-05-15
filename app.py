@@ -83,7 +83,6 @@ with st.sidebar:
     st.title("WikiHouse AI")
     st.divider()
 
-    # ── 模式選擇 ──
     mode = st.radio(
         "選擇模式",
         ["🏠 建築設計模式", "🔬 離散探索模式"],
@@ -91,7 +90,6 @@ with st.sidebar:
     )
     st.divider()
 
-    # ── Block Library ──
     st.header("Block Library")
     st.caption(f"共 {len(blocks)} 個 Block")
     series_filter   = st.selectbox("系列", ["全部", "skylark250", "skylark200"])
@@ -123,7 +121,6 @@ if mode == "🏠 建築設計模式":
         "並進行 Fabrication-Aware Grammar 驗證。"
     )
 
-    # 說明卡片
     with st.expander("ℹ️ 此模式的特性", expanded=False):
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -135,7 +132,6 @@ if mode == "🏠 建築設計模式":
 
     st.divider()
 
-    # 對話歷史
     if "design_messages" not in st.session_state:
         st.session_state.design_messages = []
         st.session_state.design_messages.append({
@@ -177,7 +173,6 @@ if mode == "🏠 建築設計模式":
             reply_display = clean_reply(reply)
             st.markdown(reply_display)
 
-            # Grammar 驗證
             last_user_msg = next(
                 (m["content"] for m in reversed(st.session_state.design_messages)
                  if m["role"] == "user"), ""
@@ -186,7 +181,6 @@ if mode == "🏠 建築設計模式":
 
             st.divider()
 
-            # ── 三方案驗證狀態 ──
             if result.get("has_json"):
                 scheme_results = result.get("scheme_results", {})
                 scheme_names = {
@@ -216,7 +210,6 @@ if mode == "🏠 建築設計模式":
                         })
                         st.rerun()
 
-                # ── 建築圖面可視化 ──
                 if scheme_results:
                     st.divider()
                     st.subheader("📐 建築設計圖面")
@@ -234,7 +227,6 @@ if mode == "🏠 建築設計模式":
                     for e in result.get("validation", {}).get("errors", []):
                         st.error(f"[{e['rule_id']}] {e['message']}")
 
-            # ── 製造資訊 ──
             ties = result.get("ties", {})
             if ties and ties.get("total", 0) > 0:
                 with st.expander("🔩 Bowtie Ties 用量"):
@@ -255,7 +247,6 @@ if mode == "🏠 建築設計模式":
                         st.caption(", ".join(step["blocks"][:5])
                                    + ("..." if len(step["blocks"]) > 5 else ""))
 
-            # ── Block 圖示 ──
             rec_blocks = result.get("recommended_blocks", [])
             if rec_blocks:
                 block_map = {b["id"]: b for b in blocks}
@@ -285,22 +276,21 @@ if mode == "🏠 建築設計模式":
 else:
     st.title("🔬 離散探索模式")
     st.caption(
-        "選擇目標形體，系統會用 WikiHouse Block 依照組裝邏輯自動填充，"
-        "適合探索非標準建築形態或基礎設施尺度的離散配置。"
+        "選擇目標形體與參數，系統自動生成 WikiHouse Block 配置，"
+        "並輸出 output_placement.json 供 Grasshopper 讀取。"
     )
 
     with st.expander("ℹ️ 此模式的特性", expanded=False):
         col1, col2, col3 = st.columns(3)
         with col1:
-            st.info("**形體自由**\n預設六種形體，未來支援自由繪製")
+            st.info("**形體自由**\n矩形、L 形、U 形、十字形")
         with col2:
-            st.warning("**探索性驗證**\n顯示違規提示但不強制修正，允許實驗性配置")
+            st.warning("**探索性驗證**\n顯示違規提示但不強制修正")
         with col3:
-            st.info("**任意尺度**\n從住宅到橋梁，Block 作為通用建構單元")
+            st.info("**Grasshopper 整合**\n直接輸出 JSON 供 Rhino 讀取")
 
     st.divider()
 
-    # ── 參數設定 ──
     col_params, col_viz = st.columns([1, 2])
 
     with col_params:
@@ -308,12 +298,11 @@ else:
 
         target_shape = st.selectbox(
             "目標形體",
-            ["rectangle", "L", "U", "arch", "cross"],
+            ["rectangle", "L", "U", "cross"],
             format_func=lambda x: {
                 "rectangle": "矩形（住宅標準）",
                 "L":         "L 形（轉角配置）",
                 "U":         "U 形（院落型）",
-                "arch":      "拱形（橋梁/展館）",
                 "cross":     "十字形（多翼配置）",
             }[x]
         )
@@ -362,11 +351,15 @@ else:
             }[x]
         )
 
-        # 探索模式驗證選項
         st.divider()
-        st.caption("🔬 探索模式設定")
-        strict_mode = st.toggle("嚴格驗證模式", value=False,
-                                help="開啟：錯誤必須修正。關閉：顯示提示但允許實驗性配置。")
+        strict_mode = st.toggle("嚴格驗證模式", value=False)
+
+        # Grasshopper JSON 輸出路徑
+        gh_json_path = st.text_input(
+            "Grasshopper JSON 路徑",
+            value=r"D:\GitHub_Projects\DiscreteHouse\output_placement.json",
+            help="生成後自動寫入此路徑，Grasshopper Recompute 即可讀取"
+        )
 
         generate_btn = st.button("🚀 生成配置", type="primary", use_container_width=True)
 
@@ -384,15 +377,26 @@ else:
                     roof_type=roof_type,
                 )
 
+            # ── 寫入 Grasshopper JSON ──
+            placed_blocks = result["placed_blocks"]
+            try:
+                with open(gh_json_path, "w", encoding="utf-8") as f:
+                    json.dump(placed_blocks, f, ensure_ascii=False, indent=2)
+                st.success(f"✅ 已寫入 {gh_json_path}（{len(placed_blocks)} 個 Block）")
+            except Exception as e:
+                st.warning(f"⚠️ 無法寫入 JSON：{e}")
+
             # ── 基本資訊 ──
             dims = result["dimensions"]
-            st.markdown(f"""
-            **形體**：{target_shape} ｜
-            **尺寸**：{dims['width_m']}m × {dims['length_m']}m ｜
-            **面積**：{round(dims['width_m'] * dims['length_m'], 1)} m²
-            """)
+            col_a, col_b, col_c = st.columns(3)
+            with col_a:
+                st.metric("形體", target_shape)
+            with col_b:
+                st.metric("尺寸", f"{dims['width_m']}m × {dims['length_m']}m")
+            with col_c:
+                st.metric("Block 總數", len(placed_blocks))
 
-            # ── 驗證狀態（探索模式特有）──
+            # ── 驗證狀態 ──
             validation = result["validation"]
             is_valid   = validation["is_valid"]
             errors     = validation.get("errors", [])
@@ -405,7 +409,7 @@ else:
                 for e in errors:
                     st.error(f"[{e['rule_id']}] {e['message']}")
             else:
-                st.warning("⚠️ 實驗性配置（已偵測到規則違反，僅供探索）")
+                st.warning("⚠️ 實驗性配置（已偵測到規則違反）")
                 for e in errors:
                     st.warning(f"[{e['rule_id']}] {e['message']}")
 
@@ -418,78 +422,144 @@ else:
 
             with st.expander(f"📦 BOM 材料清單（{total_qty} 個 Block）", expanded=True):
                 bom_data = {
-                    "步驟": [b["assembly_step"] for b in bom],
-                    "Block ID":  [b["block_id"]  for b in bom],
-                    "類型":      [b["category"]  for b in bom],
-                    "數量":      [b["quantity"]  for b in bom],
+                    "步驟":     [b["assembly_step"] for b in bom],
+                    "Block ID": [b["block_id"]  for b in bom],
+                    "類型":     [b["category"]  for b in bom],
+                    "數量":     [b["quantity"]  for b in bom],
                 }
                 st.dataframe(bom_data, use_container_width=True)
 
-            # ── Block 位置分佈（探索模式視覺化）──
-            placed = result["placed_blocks"]
-            with st.expander("📍 Block 位置分佈（俯視圖）", expanded=True):
-                import matplotlib
-                matplotlib.use("Agg")
-                fig, ax = plt.subplots(figsize=(8, 6))
-                fig.patch.set_facecolor("#1A1A2E")
-                ax.set_facecolor("#1A1A2E")
+            # ── Block 俯視配置圖 ──
+            with st.expander("📍 Block 俯視配置圖", expanded=True):
+                # 建築尺寸：東西向=跨距方向(grids_x), 南北向=長度方向(grids_y)
+                # 但注意：gx=8格對應的實際建築寬度 = 4236mm，gy=16格 = 9036mm
+                bldg_w = dims["grids_x"] * 600 - 564   # 東西向(寬) mm
+                bldg_h = dims["grids_y"] * 600 - 564   # 南北向(長) mm
 
-                color_map = {
-                    "floor":     "#D4C5A9",
-                    "end":       "#C4B090",
-                    "wall":      "#6B8FA3",
-                    "corner":    "#4A6F82",
-                    "window":    "#A8D8EA",
-                    "roof":      "#8FA36B",
-                    "connector": "#888888",
-                }
+                # SVG 畫布（東西向=水平，南北向=垂直）
+                # 讓寬高比例正確
+                SVG_W = 680
+                ratio = bldg_h / bldg_w
+                SVG_H = int(SVG_W * ratio * 0.6) + 120
+                SVG_H = min(max(SVG_H, 350), 700)
+                PL, PR, PT, PB = 50, 70, 40, 80
+                cw = SVG_W - PL - PR   # 畫布有效寬
+                ch = SVG_H - PT - PB   # 畫布有效高
 
-                for pb in placed:
-                    x = pb["position"]["x"]
-                    y = pb["position"]["y"]
-                    cat = pb["category"]
-                    color = color_map.get(cat, "#CCCCCC")
-                    rect = plt.Rectangle(
-                        (x, y), 1, 1,
-                        facecolor=color, edgecolor="#2A2A4E",
-                        linewidth=0.5, alpha=0.85
-                    )
-                    ax.add_patch(rect)
+                # px/py: mm → SVG 座標
+                # 東西向(W)對應 SVG X，南北向(H)對應 SVG Y（北在上）
+                def px(w): return PL + w / bldg_w * cw
+                def py(h): return PT + (1 - h / bldg_h) * ch
 
-                ax.set_xlim(-0.5, dims["grids_x"] + 0.5)
-                ax.set_ylim(-0.5, dims["grids_y"] + 0.5)
-                ax.set_aspect("equal")
-                ax.set_title(f"Block 俯視配置圖（{target_shape}）",
-                             color="white", fontsize=10)
-                ax.tick_params(colors="gray")
-                for spine in ax.spines.values():
-                    spine.set_edgecolor("#2A2A4E")
+                Tw = 318 / bldg_w * cw   # WALL厚(東西向) px
+                Th = 318 / bldg_h * ch   # WALL厚(南北向) px
+
+                BC = {"corner":"#D85A30","wall":"#6B8FA3","door":"#D4A843","window":"#4ABFA8"}
+                def bc(b):
+                    n = b["name"]
+                    if "DOOR" in n: return BC["door"]
+                    if "WINDOW" in n: return BC["window"]
+                    return BC["wall"]
+
+                rects = []
+
+                # 南面（圖下方）: 從 x=318mm 開始，沿東西向排列
+                # block 寬度：WALL=600, DOOR/WINDOW=1200
+                cur = 318  # mm，從 CORNER 右邊緣開始
+                for b in sorted([b for b in placed_blocks if b["face"]=="south"],
+                                 key=lambda b: b["position_mm"]["x_mm"]):
+                    w = 1200 if ("DOOR" in b["name"] or "WINDOW" in b["name"]) else 600
+                    bx = px(cur); bw = w / bldg_w * cw
+                    by = py(0) - Th; c = bc(b)
+                    lbl = "DOOR" if "DOOR" in b["name"] else "WIN" if "WINDOW" in b["name"] else "W"
+                    rects += [f'<rect x="{bx:.1f}" y="{by:.1f}" width="{max(bw,2):.1f}" height="{Th:.1f}" fill="{c}" stroke="#0D1117" stroke-width="0.8" rx="2"/>',
+                              f'<text x="{bx+bw/2:.1f}" y="{by+Th/2+4:.1f}" fill="white" font-size="9" font-family="sans-serif" text-anchor="middle">{lbl}</text>']
+                    cur += w
+
+                # 北面（圖上方）
+                cur = 318
+                for b in sorted([b for b in placed_blocks if b["face"]=="north"],
+                                 key=lambda b: b["position_mm"]["x_mm"]):
+                    w = 1200 if "WINDOW" in b["name"] else 600
+                    bx = px(cur); bw = w / bldg_w * cw
+                    by = py(bldg_h); c = bc(b)
+                    lbl = "WIN" if "WINDOW" in b["name"] else "W"
+                    rects += [f'<rect x="{bx:.1f}" y="{by:.1f}" width="{max(bw,2):.1f}" height="{Th:.1f}" fill="{c}" stroke="#0D1117" stroke-width="0.8" rx="2"/>',
+                              f'<text x="{bx+bw/2:.1f}" y="{by+Th/2+4:.1f}" fill="white" font-size="9" font-family="sans-serif" text-anchor="middle">{lbl}</text>']
+                    cur += w
+
+                # 西面（圖左側）: 從 y=318mm 開始，沿南北向排列
+                cur = 318
+                for b in sorted([b for b in placed_blocks if b["face"]=="west"],
+                                 key=lambda b: b["position_mm"]["y_mm"]):
+                    h = 1200 if "WINDOW" in b["name"] else 600
+                    bx = px(0); by = py(cur + h); bh = h / bldg_h * ch
+                    c = bc(b)
+                    rects.append(f'<rect x="{bx:.1f}" y="{by:.1f}" width="{Tw:.1f}" height="{max(bh,2):.1f}" fill="{c}" stroke="#0D1117" stroke-width="0.8" rx="2"/>')
+                    cur += h
+
+                # 東面（圖右側）
+                cur = 318
+                for b in sorted([b for b in placed_blocks if b["face"]=="east"],
+                                 key=lambda b: b["position_mm"]["y_mm"]):
+                    h = 1200 if "WINDOW" in b["name"] else 600
+                    bx = px(bldg_w) - Tw; by = py(cur + h); bh = h / bldg_h * ch
+                    c = bc(b)
+                    rects.append(f'<rect x="{bx:.1f}" y="{by:.1f}" width="{Tw:.1f}" height="{max(bh,2):.1f}" fill="{c}" stroke="#0D1117" stroke-width="0.8" rx="2"/>')
+                    if "WINDOW" in b["name"]:
+                        rects.append(f'<text x="{bx+Tw/2:.1f}" y="{by+bh/2+4:.1f}" fill="white" font-size="9" font-family="sans-serif" text-anchor="middle">W</text>')
+                    cur += h
+
+                # CORNER 四角
+                for ew, ns in [(0,0),(bldg_w,0),(0,bldg_h),(bldg_w,bldg_h)]:
+                    bx = px(ew) - (Tw if ew>0 else 0)
+                    by = py(ns) - (0 if ns>0 else Th) + (0 if ns>0 else 0)
+                    if   ew==0     and ns==0:      bx,by = px(0),       py(0)-Th
+                    elif ew>0      and ns==0:      bx,by = px(bldg_w)-Tw, py(0)-Th
+                    elif ew==0     and ns>0:       bx,by = px(0),       py(bldg_h)
+                    else:                          bx,by = px(bldg_w)-Tw, py(bldg_h)
+                    rects += [f'<rect x="{bx:.1f}" y="{by:.1f}" width="{Tw:.1f}" height="{Th:.1f}" fill="{BC["corner"]}" stroke="#0D1117" stroke-width="0.8" rx="2"/>',
+                              f'<text x="{bx+Tw/2:.1f}" y="{by+Th/2+4:.1f}" fill="white" font-size="9" font-family="sans-serif" text-anchor="middle">C</text>']
+
+                # 尺寸標註
+                anno = [
+                    f'<line x1="{px(0):.1f}" y1="{SVG_H-42}" x2="{px(bldg_w):.1f}" y2="{SVG_H-42}" stroke="#555" stroke-width="1"/>',
+                    f'<line x1="{px(0):.1f}" y1="{SVG_H-47}" x2="{px(0):.1f}" y2="{SVG_H-37}" stroke="#555" stroke-width="1"/>',
+                    f'<line x1="{px(bldg_w):.1f}" y1="{SVG_H-47}" x2="{px(bldg_w):.1f}" y2="{SVG_H-37}" stroke="#555" stroke-width="1"/>',
+                    f'<text x="{(px(0)+px(bldg_w))/2:.1f}" y="{SVG_H-26}" fill="#aaa" font-size="11" font-family="sans-serif" text-anchor="middle">東西 {bldg_w}mm</text>',
+                    f'<line x1="{SVG_W-28}" y1="{py(0):.1f}" x2="{SVG_W-28}" y2="{py(bldg_h):.1f}" stroke="#555" stroke-width="1"/>',
+                    f'<line x1="{SVG_W-33}" y1="{py(0):.1f}" x2="{SVG_W-23}" y2="{py(0):.1f}" stroke="#555" stroke-width="1"/>',
+                    f'<line x1="{SVG_W-33}" y1="{py(bldg_h):.1f}" x2="{SVG_W-23}" y2="{py(bldg_h):.1f}" stroke="#555" stroke-width="1"/>',
+                    f'<text x="{SVG_W-12}" y="{(py(0)+py(bldg_h))/2:.1f}" fill="#aaa" font-size="11" font-family="sans-serif" text-anchor="middle" transform="rotate(-90,{SVG_W-12},{(py(0)+py(bldg_h))/2:.1f})">南北 {bldg_h}mm</text>',
+                ]
 
                 # 圖例
-                legend_items = [
-                    plt.Rectangle((0,0),1,1, fc=color_map[c], label=c)
-                    for c in ["floor","wall","corner","window","roof"]
-                ]
-                ax.legend(handles=legend_items, loc="upper right",
-                          facecolor="#2A2A4E", edgecolor="#4A4A6E",
-                          labelcolor="white", fontsize=8)
+                leg = []
+                for i,(lc,ll) in enumerate([(BC["corner"],"CORNER"),(BC["wall"],"WALL"),(BC["door"],"DOOR"),(BC["window"],"WINDOW")]):
+                    lx = PL + i*155
+                    leg += [f'<rect x="{lx}" y="{SVG_H-16}" width="12" height="12" fill="{lc}" rx="2"/>',
+                            f'<text x="{lx+16}" y="{SVG_H-5}" fill="#ccc" font-size="11" font-family="sans-serif">{ll}</text>']
 
-                st.pyplot(fig)
-                plt.close(fig)
+                svg = f'''<svg width="{SVG_W}" height="{SVG_H}" xmlns="http://www.w3.org/2000/svg" style="background:#0D1117;border-radius:8px;display:block;">
+                  <text x="{SVG_W//2}" y="25" fill="white" font-size="13" font-family="sans-serif" text-anchor="middle">{target_shape} — 東西 {round(bldg_w/1000,3)}m x 南北 {round(bldg_h/1000,3)}m</text>
+                  {"".join(rects)}{"".join(anno)}{"".join(leg)}
+                </svg>'''
+                st.markdown(svg, unsafe_allow_html=True)
 
-            # ── 等角視覺化 ──
-            from utils.visualizer import draw_isometric
-            with st.expander("🏗️ 等角示意圖", expanded=True):
-                fig_iso, ax_iso = plt.subplots(figsize=(8, 6))
-                draw_isometric(
-                    placed,
-                    scheme_label=f"{target_shape} — {span_str} 跨距 — {roof_type}",
-                    roof_type=roof_type,
-                    span_str=span_str,
-                    ax=ax_iso
-                )
-                st.pyplot(fig_iso)
-                plt.close(fig_iso)
+                # Block 清單
+                st.caption("**各面 Block 配置：**")
+                for fk, fl in [("south","南面"),("north","北面"),("east","東面"),("west","西面"),("corner","CORNER")]:
+                    fb = [b for b in placed_blocks if b["face"]==fk]
+                    if not fb: continue
+                    items = []
+                    for b in fb:
+                        n = b["name"]
+                        if "DOOR" in n: dim="1200mm"
+                        elif "WINDOW" in n: dim="1200mm"
+                        elif "CORNER" in n: dim="318x318mm"
+                        else: dim="600mm"
+                        items.append(f"{n}({dim})")
+                    st.caption(f"**{fl}**：{'  |  '.join(items)}")
 
             # ── Ties 計算 ──
             ties = validation.get("ties", {})
@@ -504,23 +574,20 @@ else:
                         st.metric("Wall-Roof", f"{ties.get('wall_to_roof',0)} 個")
                     st.info(f"總計：**{ties.get('total',0)} 個**")
 
-            # ── JSON 匯出 ──
+            # ── 下載 JSON ──
             st.download_button(
                 label="⬇️ 下載配置 JSON",
-                data=json.dumps(result, ensure_ascii=False, indent=2),
+                data=json.dumps(placed_blocks, ensure_ascii=False, indent=2),
                 file_name=f"wikihouse_{target_shape}_{span_str}_{roof_type}.json",
                 mime="application/json"
             )
 
         else:
             st.info("👈 設定參數後點擊「生成配置」開始")
-
-            # 形體預覽說明
             shape_desc = {
                 "rectangle": "📐 矩形：最基本的 WikiHouse 配置，適合住宅",
                 "L":         "📐 L 形：轉角配置，適合有院子的住宅",
                 "U":         "📐 U 形：院落型，三面圍合的中庭空間",
-                "arch":      "📐 拱形：半圓拱，適合橋梁、展館等基礎設施",
                 "cross":     "📐 十字形：多翼配置，適合學校、社區中心",
             }
             st.markdown(f"**{shape_desc.get(target_shape, '')}**")

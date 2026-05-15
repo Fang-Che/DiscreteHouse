@@ -1,0 +1,110 @@
+[
+  {
+    "rotation": 0.0, 
+    "block_id": "SKYLARK200_CORNER-M", 
+    "position_mm": {
+      "x_mm": 4186.0, 
+      "z_mm": -2400.0, 
+      "y_mm": 25.0
+    }
+  }, 
+  {
+    "rotation": 90.0, 
+    "block_id": "SKYLARK250_WALL-M", 
+    "position_mm": {
+      "x_mm": 4236.0, 
+      "z_mm": -2400.0, 
+      "y_mm": 3618.0
+    }
+  }, 
+  {
+    "rotation": 90.0, 
+    "block_id": "SKYLARK250_WALL-M", 
+    "position_mm": {
+      "x_mm": 4236.0, 
+      "z_mm": -2400.0, 
+      "y_mm": 3018.0
+    }
+  }, 
+  {
+    "rotation": 90.0, 
+    "block_id": "SKYLARK250_WALL-M", 
+    "position_mm": {
+      "x_mm": 4236.0, 
+      "z_mm": -2400.0, 
+      "y_mm": 1218.0
+    }
+  }, 
+  {
+    "rotation": 90.0, 
+    "block_id": "SKYLARK250_WALL-M", 
+    "position_mm": {
+      "x_mm": 4236.0, 
+      "z_mm": -2400.0, 
+      "y_mm": 618.0
+    }
+  }, 
+  {
+    "rotation": 90.0, 
+    "block_id": "SKYLARK250_WINDOW-M2", 
+    "position_mm": {
+      "x_mm": 4236.0, 
+      "z_mm": -2400.0, 
+      "y_mm": 2118.0
+    }
+  }, 
+  {
+    "rotation": 0.0, 
+    "block_id": "SKYLARK250_WALL-M", 
+    "position_mm": {
+      "x_mm": 3018.0, 
+      "z_mm": -2400.0, 
+      "y_mm": 0.0
+    }
+  }, 
+  {
+    "rotation": 0.0, 
+    "block_id": "SKYLARK250_WALL-M", 
+    "position_mm": {
+      "x_mm": 3618.0, 
+      "z_mm": -2400.0, 
+      "y_mm": 0.0
+    }
+  }, 
+  {
+    "rotation": 0.0, 
+    "block_id": "SKYLARK250_WALL-M", 
+    "position_mm": {
+      "x_mm": 618.0, 
+      "z_mm": -2400.0, 
+      "y_mm": 0.0
+    }
+  }, 
+  {
+    "rotation": 0.0, 
+    "block_id": "SKYLARK250_DOOR-M1", 
+    "position_mm": {
+      "x_mm": 2718.0, 
+      "z_mm": -300.0, 
+      "y_mm": 318.0
+    }
+  }, 
+  {
+    "rotation": 0.0, 
+    "block_id": "SKYLARK250_WALL-M", 
+    "position_mm": {
+      "x_mm": 1218.0, 
+      "z_mm": -2400.0, 
+      "y_mm": 0.0
+    }
+  }, 
+  {
+    "rotation": 0.0, 
+    "block_id": "SKYLARK200_CORNER-M", 
+    "position_mm": {
+      "x_mm": 268.0, 
+      "z_mm": -2400.0, 
+      "y_mm": 25.0
+    }
+  }
+]

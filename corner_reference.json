@@ -1,0 +1,30 @@
+[
+  {
+    "block_id": "SKYLARK200_CORNER-M",
+    "x": 25,
+    "y": 8768,
+    "z": -2400,
+    "rotation": 270
+  },
+  {
+    "block_id": "SKYLARK200_CORNER-M",
+    "x": 3968,
+    "y": 9011,
+    "z": -2400,
+    "rotation": 180
+  },
+  {
+    "block_id": "SKYLARK200_CORNER-M",
+    "x": 4211,
+    "y": 268,
+    "z": -2400,
+    "rotation": 90
+  },
+  {
+    "block_id": "SKYLARK200_CORNER-M",
+    "x": 268,
+    "y": 25,
+    "z": -2400,
+    "rotation": 0
+  }
+]

@@ -1,0 +1,230 @@
+[
+  {
+    "block_id": "SKYLARK200_CORNER-M",
+    "insert_mm": {
+      "x": 4186,
+      "y": 25,
+      "z": -2400
+    },
+    "rotation": 0,
+    "bbox_min": {
+      "x": 3918,
+      "y": 0,
+      "z": -2400
+    },
+    "bbox_max": {
+      "x": 4236,
+      "y": 318,
+      "z": 0
+    }
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "insert_mm": {
+      "x": 4236,
+      "y": 3018,
+      "z": -2400
+    },
+    "rotation": 90,
+    "bbox_min": {
+      "x": 3918,
+      "y": 2718,
+      "z": -2400
+    },
+    "bbox_max": {
+      "x": 4236,
+      "y": 3318,
+      "z": 0
+    }
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "insert_mm": {
+      "x": 4236,
+      "y": 3618,
+      "z": -2400
+    },
+    "rotation": 90,
+    "bbox_min": {
+      "x": 3918,
+      "y": 3318,
+      "z": -2400
+    },
+    "bbox_max": {
+      "x": 4236,
+      "y": 3918,
+      "z": 0
+    }
+  },
+  {
+    "block_id": "SKYLARK250_WINDOW-M2",
+    "insert_mm": {
+      "x": 4236,
+      "y": 2118,
+      "z": -2400
+    },
+    "rotation": 90,
+    "bbox_min": {
+      "x": 3918,
+      "y": 1518,
+      "z": -2400
+    },
+    "bbox_max": {
+      "x": 4236,
+      "y": 2718,
+      "z": 190
+    }
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "insert_mm": {
+      "x": 4236,
+      "y": 1218,
+      "z": -2400
+    },
+    "rotation": 90,
+    "bbox_min": {
+      "x": 3918,
+      "y": 918,
+      "z": -2400
+    },
+    "bbox_max": {
+      "x": 4236,
+      "y": 1518,
+      "z": 0
+    }
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "insert_mm": {
+      "x": 4236,
+      "y": 618,
+      "z": -2400
+    },
+    "rotation": 90,
+    "bbox_min": {
+      "x": 3918,
+      "y": 318,
+      "z": -2400
+    },
+    "bbox_max": {
+      "x": 4236,
+      "y": 918,
+      "z": 0
+    }
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "insert_mm": {
+      "x": 3018,
+      "y": 0,
+      "z": -2400
+    },
+    "rotation": 0,
+    "bbox_min": {
+      "x": 2718,
+      "y": 0,
+      "z": -2400
+    },
+    "bbox_max": {
+      "x": 3318,
+      "y": 318,
+      "z": 0
+    }
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "insert_mm": {
+      "x": 3618,
+      "y": 0,
+      "z": -2400
+    },
+    "rotation": 0,
+    "bbox_min": {
+      "x": 3318,
+      "y": 0,
+      "z": -2400
+    },
+    "bbox_max": {
+      "x": 3918,
+      "y": 318,
+      "z": 0
+    }
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "insert_mm": {
+      "x": 618,
+      "y": 0,
+      "z": -2400
+    },
+    "rotation": 0,
+    "bbox_min": {
+      "x": 318,
+      "y": 0,
+      "z": -2400
+    },
+    "bbox_max": {
+      "x": 918,
+      "y": 318,
+      "z": 0
+    }
+  },
+  {
+    "block_id": "SKYLARK250_DOOR-M1",
+    "insert_mm": {
+      "x": 2718,
+      "y": 318,
+      "z": -300
+    },
+    "rotation": 0,
+    "bbox_min": {
+      "x": 1518,
+      "y": 0,
+      "z": -2400
+    },
+    "bbox_max": {
+      "x": 2718,
+      "y": 318,
+      "z": 190
+    }
+  },
+  {
+    "block_id": "SKYLARK250_WALL-M",
+    "insert_mm": {
+      "x": 1218,
+      "y": 0,
+      "z": -2400
+    },
+    "rotation": 0,
+    "bbox_min": {
+      "x": 918,
+      "y": 0,
+      "z": -2400
+    },
+    "bbox_max": {
+      "x": 1518,
+      "y": 318,
+      "z": 0
+    }
+  },
+  {
+    "block_id": "SKYLARK200_CORNER-M",
+    "insert_mm": {
+      "x": 268,
+      "y": 25,
+      "z": -2400
+    },
+    "rotation": 0,
+    "bbox_min": {
+      "x": 0,
+      "y": 0,
+      "z": -2400
+    },
+    "bbox_max": {
+      "x": 318,
+      "y": 318,
+      "z": 0
+    }
+  }
+]
